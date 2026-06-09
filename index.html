@@ -192,12 +192,19 @@
   .quote blockquote{margin:0;color:var(--ink);font-size:15.5px;line-height:1.55;font-style:italic}
   .quote figcaption{margin-top:14px;font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);font-style:normal}
 
+  .prin-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .prin{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px 24px}
+  .prin-n{font-family:var(--mono);font-size:12px;color:var(--accent-dim);margin-bottom:10px}
+  .prin-t{font-size:16px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:9px}
+  .prin-d{color:var(--ink-dim);font-size:14px;line-height:1.55}
+
   @media (max-width:560px){
     header{padding:52px 0 44px}
     section{padding:48px 0}
     .entry-when{white-space:normal}
     .cs-ba{grid-template-columns:1fr}
     .quotes{grid-template-columns:1fr}
+    .prin-grid{grid-template-columns:1fr}
     .cs{padding:24px 20px 18px}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -394,10 +401,42 @@
   </div>
 </section>
 
-<section id="approach">
+<section id="principles">
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-num">03</span>
+      <span class="sec-title">How I operate</span>
+      <span class="sec-rule"></span>
+    </div>
+    <div class="prin-grid">
+      <div class="prin reveal">
+        <div class="prin-n">01</div>
+        <div class="prin-t">Write it down, or it didn't happen.</div>
+        <div class="prin-d">Knowledge that lives in someone's head is a risk. I make work visible, documented, and traceable so nothing depends on memory or verbal promises.</div>
+      </div>
+      <div class="prin reveal">
+        <div class="prin-n">02</div>
+        <div class="prin-t">Build the system once, so it runs without me.</div>
+        <div class="prin-d">The goal isn't to be indispensable — it's the opposite. I design processes and documentation so teams keep moving whether or not I'm in the room.</div>
+      </div>
+      <div class="prin reveal">
+        <div class="prin-n">03</div>
+        <div class="prin-t">Autonomy inside a clear structure.</div>
+        <div class="prin-d">People do their best work when they own their queue but know exactly how the pieces fit. I set the frame, then get out of the way.</div>
+      </div>
+      <div class="prin reveal">
+        <div class="prin-n">04</div>
+        <div class="prin-t">Stop the bleeding, then fix the root cause.</div>
+        <div class="prin-d">For serious problems I triage first to contain the damage, then run structured analysis — impact mapping, Ishikawa, 5 Whys — to find what's actually broken. The goal is a sustainable fix, not a band-aid.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
       <span class="sec-title">How I work</span>
       <span class="sec-rule"></span>
     </div>
@@ -618,7 +657,7 @@
 <section id="skills">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">04</span>
+      <span class="sec-num">05</span>
       <span class="sec-title">Toolkit</span>
       <span class="sec-rule"></span>
     </div>
@@ -666,7 +705,7 @@
 <section id="certs">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">05</span>
+      <span class="sec-num">06</span>
       <span class="sec-title">Credentials</span>
       <span class="sec-rule"></span>
     </div>
@@ -687,7 +726,7 @@
 <section id="words">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">06</span>
+      <span class="sec-num">07</span>
       <span class="sec-title">In their words</span>
       <span class="sec-rule"></span>
     </div>
@@ -697,8 +736,8 @@
         <figcaption>JL F. &middot; teammate on the ACPC government project</figcaption>
       </figure>
       <figure class="quote reveal">
-        <blockquote>&ldquo;Recognizing his potential and leadership, he successfully transitioned to a Project Manager role.&rdquo;</blockquote>
-        <figcaption>Ellen A. &middot; colleague at Four13 Group</figcaption>
+        <blockquote>&ldquo;His attention to detail and proactive approach significantly contributed to delivering complex IT projects.&rdquo;</blockquote>
+        <figcaption>Franz Daryl D. &middot; General Manager, MyBusyBee</figcaption>
       </figure>
     </div>
     <p style="color:var(--ink-faint);font-family:var(--mono);font-size:11.5px;margin-top:18px">// full recommendations on LinkedIn</p>
@@ -708,7 +747,7 @@
 <section id="contact">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">07</span>
+      <span class="sec-num">08</span>
       <span class="sec-title">Contact</span>
       <span class="sec-rule"></span>
     </div>
