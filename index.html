@@ -48,6 +48,7 @@
   /* hero */
   header{padding:84px 0 64px;border-bottom:1px solid var(--line)}
   .eyebrow{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.06em;margin-bottom:22px}
+  .avatar{width:84px;height:84px;border-radius:50%;object-fit:cover;border:1px solid var(--line);margin-bottom:26px;display:block}
   h1{font-size:clamp(38px,7vw,68px);line-height:1.02;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
   .role{font-size:clamp(18px,3vw,22px);color:var(--ink-dim);font-weight:500;margin-bottom:30px}
   .lede{font-size:clamp(17px,2.4vw,20px);color:var(--ink);max-width:680px;line-height:1.55}
@@ -139,10 +140,65 @@
 
   footer{padding:40px 0;font-family:var(--mono);font-size:12px;color:var(--ink-faint);text-align:center}
 
+  .study{margin-bottom:46px}
+  .study:last-child{margin-bottom:0}
+  .study-label{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.04em;margin-bottom:10px}
+  .study-desc{color:var(--ink-dim);font-size:14.5px;line-height:1.55;max-width:680px;margin-bottom:20px}
+  .study-svg{width:100%;height:auto;display:block;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 10px}
+
+  .carousel{position:relative}
+  .carousel-track{display:flex;overflow:hidden;scroll-behavior:smooth}
+  .carousel-track.no-js{flex-direction:column;gap:24px;overflow:visible}
+  .slide{min-width:100%;flex:0 0 100%}
+  .slide-title{font-family:var(--mono);font-size:12.5px;color:var(--ink-dim);margin-bottom:10px;text-align:center}
+  .carousel-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:16px}
+  .carousel-track.no-js ~ .carousel-nav{display:none}
+  .cbtn{font-family:var(--mono);font-size:15px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:4px;width:38px;height:32px;cursor:pointer;transition:all .15s}
+  .cbtn:hover{border-color:var(--accent);color:var(--accent)}
+  .cbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .cbtn-next{width:auto;padding:0 14px;background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:500}
+  .cbtn-next:hover{background:#7df7d3;border-color:#7df7d3;color:var(--bg)}
+  .cbtn-next.dim{background:var(--panel);color:var(--ink-faint);border-color:var(--line);font-weight:400}
+  @media (prefers-reduced-motion:no-preference){.cbtn-next:not(.dim){animation:nudge 1.8s ease-in-out 3}}
+  @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+  .carousel-hint{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);text-align:center;margin-top:10px}
+  .cdots{display:flex;gap:8px}
+  .cdot{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .15s}
+  .cdot.active{background:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  .cs{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:30px 30px 24px}
+  .cs-title{font-size:21px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+  .cs-tag{font-family:var(--mono);font-size:12.5px;color:var(--accent);margin-top:6px;margin-bottom:22px}
+  .cs-block{margin-bottom:18px}
+  .cs-h{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:7px}
+  .cs-block p{color:var(--ink-dim);font-size:15px;line-height:1.6}
+  .cs-ba{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:4px 0 22px}
+  .cs-col{background:var(--panel);padding:18px 20px}
+  .cs-col-h{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+  .cs-before .cs-col-h{color:#d98a6a}
+  .cs-after .cs-col-h{color:var(--accent)}
+  .cs-col ul{list-style:none}
+  .cs-col li{position:relative;padding-left:16px;margin-bottom:8px;color:var(--ink-dim);font-size:13.5px;line-height:1.45}
+  .cs-col li::before{content:"";position:absolute;left:1px;top:8px;width:5px;height:5px;border-radius:50%}
+  .cs-before li::before{background:#a8654a}
+  .cs-after li::before{background:var(--accent-dim)}
+
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .quote{background:var(--panel);border:1px solid var(--line);border-left:2px solid var(--accent-dim);border-radius:0 8px 8px 0;padding:22px 24px;margin:0}
+  .quote blockquote{margin:0;color:var(--ink);font-size:15.5px;line-height:1.55;font-style:italic}
+  .quote figcaption{margin-top:14px;font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);font-style:normal}
+
   @media (max-width:560px){
     header{padding:52px 0 44px}
     section{padding:48px 0}
     .entry-when{white-space:normal}
+    .cs-ba{grid-template-columns:1fr}
+    .quotes{grid-template-columns:1fr}
+    .cs{padding:24px 20px 18px}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -154,7 +210,8 @@
     <span><span class="dot">●</span> Available for remote work · UTC+8</span>
     <nav class="navlinks">
       <a href="#work">work</a>
-      <a href="#skills">skills</a>
+      <a href="#casestudy">case study</a>
+      <a href="#approach">how i work</a>
       <a href="#certs">certs</a>
       <a href="#contact">contact</a>
     </nav>
@@ -163,9 +220,10 @@
 
 <header>
   <div class="wrap">
+    <img src="headshot.jpg" alt="Edward John Felicia" class="avatar" onerror="this.style.display='none'">
     <div class="eyebrow">// project manager · agile · scrum</div>
     <h1>Edward John<br>Felicia</h1>
-    <div class="role">I build operations that run without the PM in the room.</div>
+    <div class="role">I rescue stalled projects and build the systems that keep them on track.</div>
     <p class="lede">A project manager who turns messy, undocumented operations into systems that scale. I rescue delayed projects, own delivery from kickoff through sign-off, and keep cross-functional teams aligned under pressure. Proudest of <strong>rebuilding a team's entire operating system in ClickUp</strong> so it no longer depended on any one person.</p>
     <div class="meta">
       <span><span class="k">location</span> Metro Manila, PH (UTC+8)</span>
@@ -212,7 +270,7 @@
       <span class="sec-rule"></span>
     </div>
 
-    <div class="entry">
+    <div class="entry reveal">
       <div class="entry-top">
         <span class="entry-co">Ozarke</span>
         <span class="entry-when">Sep 2024 — Present</span>
@@ -227,7 +285,7 @@
       </ul>
     </div>
 
-    <div class="entry">
+    <div class="entry reveal">
       <div class="entry-top">
         <span class="entry-co">Pareto AI</span>
         <span class="entry-when">May 2025 — Jun 2026</span>
@@ -241,7 +299,7 @@
       </ul>
     </div>
 
-    <div class="entry">
+    <div class="entry reveal">
       <div class="entry-top">
         <span class="entry-co">MyBusyBee, Inc.</span>
         <span class="entry-when">Apr 2024 — Nov 2024</span>
@@ -255,7 +313,7 @@
       </ul>
     </div>
 
-    <div class="entry">
+    <div class="entry reveal">
       <div class="entry-top">
         <span class="entry-co">CoreBridge Solutions</span>
         <span class="entry-when">Jul 2024 — Nov 2024</span>
@@ -268,7 +326,7 @@
       </ul>
     </div>
 
-    <div class="entry">
+    <div class="entry reveal">
       <div class="entry-top">
         <span class="entry-co">Four13 Group</span>
         <span class="entry-when">Apr 2023 — Feb 2024</span>
@@ -285,10 +343,282 @@
   </div>
 </section>
 
-<section id="skills">
+<section id="casestudy">
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-num">02</span>
+      <span class="sec-title">Case study · project rescue</span>
+      <span class="sec-rule"></span>
+    </div>
+
+    <div class="cs reveal">
+      <div class="cs-title">Rescuing a stalled government IT project</div>
+      <div class="cs-tag">Lead Project Manager &middot; Scrum Master &middot; ACPC PIMMS</div>
+
+      <div class="cs-block">
+        <div class="cs-h">The situation</div>
+        <p>I was brought onto a government procurement, inventory, and motorpool management system that was in trouble. Two project managers had already left, the build was roughly two months behind, and there was almost nothing to work from: no real documentation, no working process, and key client agreements existed only as verbal understandings. The team was capable but demoralized and working without a clear cadence.</p>
+      </div>
+
+      <div class="cs-block">
+        <div class="cs-h">What I did</div>
+        <p>I rebuilt how the project ran from the ground up. I introduced a full Scrum framework and taught the entire team how to use it, taking them from informal, ad-hoc standups to proper two-week sprints, daily standups, and structured reviews. I closed the documentation gap by making everything written and tracked, so work no longer lived in people's heads or in verbal promises. I re-established a regular client cadence with consistent demos and updates, which rebuilt trust after the earlier instability. And I controlled scope deliberately, honoring prior commitments in good faith while drawing a clear line on new requests so the timeline stopped slipping.</p>
+      </div>
+
+      <div class="cs-ba">
+        <div class="cs-col cs-before">
+          <div class="cs-col-h">Before</div>
+          <ul>
+            <li>Verbal, undocumented agreements</li>
+            <li>Sporadic, reactive client contact</li>
+            <li>Informal standups, no real process</li>
+            <li>Two months behind, two PMs gone</li>
+          </ul>
+        </div>
+        <div class="cs-col cs-after">
+          <div class="cs-col-h">After</div>
+          <ul>
+            <li>Everything written and tracked</li>
+            <li>Regular client demos and updates</li>
+            <li>Full Scrum: sprints, standups, reviews</li>
+            <li>Team trained and self-directing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block">
+        <div class="cs-h">The result</div>
+        <p>The system was delivered on time with a one-month buffer built in, full client sign-off, and no penalties. After the recovery, I was promoted to Lead Project Manager on the engagement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <span class="sec-title">How I work</span>
+      <span class="sec-rule"></span>
+    </div>
+    <p style="color:var(--ink-dim);font-size:15.5px;max-width:680px;margin-bottom:38px;line-height:1.55">Three systems I've designed and run. The throughline: build the structure once, so teams move without the PM as a bottleneck.</p>
+
+    <div class="study reveal">
+      <div class="study-label">01 — Delivery frameworks I've built</div>
+      <p class="study-desc">End-to-end pipelines I've designed across two domains — full website delivery and e-commerce product launches. Each turns a complex, multi-team effort into a repeatable, trackable process.</p>
+
+      <div class="carousel" id="frameworks">
+        <div class="carousel-track" id="fwTrack">
+
+          <div class="slide" role="group" aria-label="Slide 1 of 2: Website development lifecycle">
+            <div class="slide-title">Website development · cradle to grave</div>
+            <svg viewBox="0 0 680 596" class="study-svg" role="img" aria-label="Eight-phase website development lifecycle">
+              <g font-family="IBM Plex Mono, monospace">
+                <g><rect x="190" y="16" width="300" height="50" rx="6" fill="#1a2730" stroke="#3a4654" stroke-width="1"/>
+                <text x="340" y="37" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">1 · Planning &amp; discovery</text>
+                <text x="340" y="54" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Scope, goals, research, timeline</text></g>
+                <line x1="340" y1="66" x2="340" y2="82" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="190" y="82" width="300" height="50" rx="6" fill="#16282a" stroke="#2a8d72" stroke-width="1"/>
+                <text x="340" y="103" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">2 · Branding &amp; content</text>
+                <text x="340" y="120" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Assets, copy, media, approval</text></g>
+                <line x1="340" y1="132" x2="340" y2="148" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="190" y="148" width="300" height="50" rx="6" fill="#16222e" stroke="#2f6f8f" stroke-width="1"/>
+                <text x="340" y="169" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">3 · Sitemap &amp; wireframes</text>
+                <text x="340" y="186" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Lo-fi structure, client review</text></g>
+                <line x1="340" y1="198" x2="340" y2="214" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="190" y="214" width="300" height="50" rx="6" fill="#16222e" stroke="#2f6f8f" stroke-width="1"/>
+                <text x="340" y="235" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">4 · Hi-fi mockups &amp; approval</text>
+                <text x="340" y="252" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Design, present, revise, sign-off</text></g>
+                <line x1="340" y1="264" x2="340" y2="280" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="190" y="280" width="300" height="50" rx="6" fill="#231f30" stroke="#7159a8" stroke-width="1"/>
+                <text x="340" y="301" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">5 · Development</text>
+                <text x="340" y="318" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Build, style, SEO, internal test</text></g>
+                <line x1="340" y1="330" x2="340" y2="346" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="190" y="346" width="300" height="50" rx="6" fill="#231f30" stroke="#7159a8" stroke-width="1"/>
+                <text x="340" y="367" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">6 · Testing &amp; QA</text>
+                <text x="340" y="384" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Cross-browser, UAT, bug fixes</text></g>
+                <line x1="340" y1="396" x2="340" y2="412" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="190" y="412" width="300" height="50" rx="6" fill="#2a2417" stroke="#a8852f" stroke-width="1"/>
+                <text x="340" y="433" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">7 · Launch</text>
+                <text x="340" y="450" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Deploy, DNS, post-launch test</text></g>
+                <line x1="340" y1="462" x2="340" y2="478" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="190" y="478" width="300" height="50" rx="6" fill="#2a2417" stroke="#a8852f" stroke-width="1"/>
+                <text x="340" y="499" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">8 · Post-launch improvements</text>
+                <text x="340" y="516" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Monitoring, SEO, maintenance</text></g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="slide" role="group" aria-label="Slide 2 of 2: Product launch pipeline">
+            <div class="slide-title">E-commerce product launch · 8 phases</div>
+            <svg viewBox="0 0 680 596" class="study-svg" role="img" aria-label="Eight-phase product launch pipeline">
+              <g font-family="IBM Plex Mono, monospace">
+                <g><rect x="210" y="16" width="260" height="50" rx="6" fill="#1a2730" stroke="#2a8d72" stroke-width="1"/>
+                <text x="340" y="37" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">0 · Task requirements</text>
+                <text x="340" y="54" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Supplier data, specs, branding</text></g>
+                <line x1="340" y1="66" x2="340" y2="82" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="210" y="82" width="260" height="50" rx="6" fill="#16222e" stroke="#2f6f8f" stroke-width="1"/>
+                <text x="340" y="103" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">1 · Pricing</text>
+                <text x="340" y="120" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Costing, agreements, bulk orders</text></g>
+                <line x1="340" y1="132" x2="340" y2="148" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="210" y="148" width="260" height="50" rx="6" fill="#16222e" stroke="#2f6f8f" stroke-width="1"/>
+                <text x="340" y="169" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">2 · Initiation</text>
+                <text x="340" y="186" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Specs, SKUs, listing drafts</text></g>
+                <line x1="340" y1="198" x2="340" y2="214" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="210" y="214" width="260" height="50" rx="6" fill="#16282a" stroke="#2a8d72" stroke-width="1"/>
+                <text x="340" y="235" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">3 · Content</text>
+                <text x="340" y="252" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Packaging, 3D, spec sheets</text></g>
+                <line x1="340" y1="264" x2="340" y2="280" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="210" y="280" width="260" height="50" rx="6" fill="#16282a" stroke="#2a8d72" stroke-width="1"/>
+                <text x="340" y="301" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">4 · Production &amp; shipping</text>
+                <text x="340" y="318" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Manufacture, review, freight</text></g>
+                <line x1="340" y1="330" x2="340" y2="346" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="210" y="346" width="260" height="50" rx="6" fill="#231f30" stroke="#7159a8" stroke-width="1"/>
+                <text x="340" y="367" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">5 · Listings</text>
+                <text x="340" y="384" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Marketplace + channel listings</text></g>
+                <line x1="340" y1="396" x2="340" y2="412" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="210" y="412" width="260" height="50" rx="6" fill="#231f30" stroke="#7159a8" stroke-width="1"/>
+                <text x="340" y="433" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">6 · Go-live</text>
+                <text x="340" y="450" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Preorder then in-stock publish</text></g>
+                <line x1="340" y1="462" x2="340" y2="478" stroke="#2a8d72" stroke-width="1.5"/>
+                <g><rect x="210" y="478" width="260" height="50" rx="6" fill="#2a2417" stroke="#a8852f" stroke-width="1"/>
+                <text x="340" y="499" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">7 · Post-launch</text>
+                <text x="340" y="516" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Social, reviews, email campaign</text></g>
+              </g>
+            </svg>
+          </div>
+
+        </div>
+        <div class="carousel-nav">
+          <button type="button" class="cbtn" id="fwPrev" aria-label="Previous framework">&larr;</button>
+          <div class="cdots"><span class="cdot active" data-i="0"></span><span class="cdot" data-i="1"></span></div>
+          <button type="button" class="cbtn cbtn-next" id="fwNext" aria-label="Next framework">next &rarr;</button>
+        </div>
+        <div class="carousel-hint" id="fwHint">2 frameworks &middot; tap next to see the other</div>
+      </div>
+    </div>
+
+    <div class="study reveal">
+      <div class="study-label">02 — Self-service request intake</div>
+      <p class="study-desc">A cross-department intake system. Teams submit structured requests that auto-route to the right queue, with one dashboard giving leadership full visibility — removing the PM as a manual router.</p>
+      <svg viewBox="0 0 680 456" class="study-svg" role="img" aria-label="Self-service request intake and routing system">
+        <defs>
+          <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#2a8d72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        </defs>
+        <g font-family="IBM Plex Mono, monospace">
+          <g>
+            <rect x="40" y="38" width="180" height="52" rx="6" fill="#1a2730" stroke="#3a4654" stroke-width="1"/>
+            <text x="130" y="60" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Requesters</text>
+            <text x="130" y="77" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Any team</text>
+          </g>
+          <line x1="220" y1="64" x2="266" y2="64" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar2)"/>
+          <g>
+            <rect x="270" y="38" width="180" height="52" rx="6" fill="#16222e" stroke="#2f6f8f" stroke-width="1"/>
+            <text x="360" y="60" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Structured form</text>
+            <text x="360" y="77" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Priority, scope, deadline</text>
+          </g>
+          <line x1="450" y1="64" x2="496" y2="64" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar2)"/>
+          <g>
+            <rect x="500" y="38" width="140" height="52" rx="6" fill="#231f30" stroke="#7159a8" stroke-width="1"/>
+            <text x="570" y="60" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Auto-routing</text>
+            <text x="570" y="77" text-anchor="middle" fill="#9aa6b4" font-size="11.5">To right queue</text>
+          </g>
+          <path d="M570 90 L570 112 L150 112 L150 132" fill="none" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar2)"/>
+          <path d="M570 90 L570 112 L360 112 L360 132" fill="none" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar2)"/>
+          <path d="M570 90 L570 132" fill="none" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar2)"/>
+          <g>
+            <rect x="60" y="132" width="170" height="50" rx="6" fill="#16282a" stroke="#2a8d72" stroke-width="1"/>
+            <text x="145" y="153" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Team A queue</text>
+            <text x="145" y="170" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Owns its list</text>
+          </g>
+          <g>
+            <rect x="275" y="132" width="170" height="50" rx="6" fill="#16282a" stroke="#2a8d72" stroke-width="1"/>
+            <text x="360" y="153" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Team B queue</text>
+            <text x="360" y="170" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Owns its list</text>
+          </g>
+          <g>
+            <rect x="490" y="132" width="170" height="50" rx="6" fill="#16282a" stroke="#2a8d72" stroke-width="1"/>
+            <text x="575" y="153" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Team C queue</text>
+            <text x="575" y="170" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Owns its list</text>
+          </g>
+          <line x1="145" y1="182" x2="145" y2="222" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar2)"/>
+          <line x1="360" y1="182" x2="360" y2="222" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar2)"/>
+          <line x1="575" y1="182" x2="575" y2="222" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar2)"/>
+          <g>
+            <rect x="60" y="222" width="600" height="58" rx="8" fill="#2a2417" stroke="#a8852f" stroke-width="1"/>
+            <text x="360" y="245" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Unified dashboard</text>
+            <text x="360" y="264" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Leadership sees every request, status, and blocker in one place</text>
+          </g>
+          <line x1="360" y1="280" x2="360" y2="320" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar2)"/>
+          <g>
+            <rect x="210" y="320" width="260" height="52" rx="6" fill="#1a2730" stroke="#3a4654" stroke-width="1"/>
+            <text x="340" y="342" text-anchor="middle" fill="#5ef2c4" font-size="14" font-weight="600">PM removed as bottleneck</text>
+            <text x="340" y="359" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Work flows without manual hand-offs</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="study reveal">
+      <div class="study-label">03 — Documentation approach</div>
+      <p class="study-desc">A documentation system built on a single principle: if it isn't written down, it didn't happen. Consistent templates and a tiered wiki turn scattered tribal knowledge into a searchable base teams can self-serve from.</p>
+      <svg viewBox="0 0 680 410" class="study-svg" role="img" aria-label="Documentation methodology for team autonomy">
+        <defs>
+          <marker id="ar3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#2a8d72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        </defs>
+        <g font-family="IBM Plex Mono, monospace">
+          <g>
+            <rect x="160" y="16" width="360" height="50" rx="6" fill="#2a2417" stroke="#a8852f" stroke-width="1"/>
+            <text x="340" y="37" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">One source of truth</text>
+            <text x="340" y="54" text-anchor="middle" fill="#9aa6b4" font-size="11.5">If it isn't written, it didn't happen</text>
+          </g>
+          <path d="M340 66 L340 84 L150 84 L150 102" fill="none" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar3)"/>
+          <path d="M340 66 L340 102" fill="none" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar3)"/>
+          <path d="M340 66 L340 84 L530 84 L530 102" fill="none" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar3)"/>
+          <g>
+            <rect x="50" y="102" width="200" height="58" rx="6" fill="#16222e" stroke="#2f6f8f" stroke-width="1"/>
+            <text x="150" y="124" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Consistent template</text>
+            <text x="150" y="142" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Overview · steps · versions</text>
+          </g>
+          <g>
+            <rect x="270" y="102" width="140" height="58" rx="6" fill="#16222e" stroke="#2f6f8f" stroke-width="1"/>
+            <text x="340" y="124" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Tiered wiki</text>
+            <text x="340" y="142" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Index → sub-pages</text>
+          </g>
+          <g>
+            <rect x="430" y="102" width="200" height="58" rx="6" fill="#16222e" stroke="#2f6f8f" stroke-width="1"/>
+            <text x="530" y="124" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Short &amp; current</text>
+            <text x="530" y="142" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Versioned, owned</text>
+          </g>
+          <line x1="150" y1="160" x2="150" y2="196" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar3)"/>
+          <line x1="340" y1="160" x2="340" y2="196" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar3)"/>
+          <line x1="530" y1="160" x2="530" y2="196" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar3)"/>
+          <g>
+            <rect x="50" y="196" width="580" height="54" rx="8" fill="#16282a" stroke="#2a8d72" stroke-width="1"/>
+            <text x="340" y="217" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Searchable, self-serve knowledge base</text>
+            <text x="340" y="236" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Anyone finds how the work is done, without asking around</text>
+          </g>
+          <line x1="340" y1="250" x2="340" y2="286" stroke="#2a8d72" stroke-width="1.5" marker-end="url(#ar3)"/>
+          <g>
+            <rect x="120" y="286" width="200" height="58" rx="6" fill="#231f30" stroke="#7159a8" stroke-width="1"/>
+            <text x="220" y="308" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Team autonomy</text>
+            <text x="220" y="326" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Self-onboard, self-unblock</text>
+          </g>
+          <g>
+            <rect x="360" y="286" width="200" height="58" rx="6" fill="#231f30" stroke="#7159a8" stroke-width="1"/>
+            <text x="460" y="308" text-anchor="middle" fill="#e6eaf0" font-size="14" font-weight="600">Less PM dependency</text>
+            <text x="460" y="326" text-anchor="middle" fill="#9aa6b4" font-size="11.5">Knowledge in the system</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
       <span class="sec-title">Toolkit</span>
       <span class="sec-rule"></span>
     </div>
@@ -336,7 +666,7 @@
 <section id="certs">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">03</span>
+      <span class="sec-num">05</span>
       <span class="sec-title">Credentials</span>
       <span class="sec-rule"></span>
     </div>
@@ -354,10 +684,31 @@
   </div>
 </section>
 
+<section id="words">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <span class="sec-title">In their words</span>
+      <span class="sec-rule"></span>
+    </div>
+    <div class="quotes">
+      <figure class="quote reveal">
+        <blockquote>&ldquo;He proactively introduced the Scrum framework, greatly enhancing the project's effectiveness.&rdquo;</blockquote>
+        <figcaption>JL F. &middot; teammate on the ACPC government project</figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <blockquote>&ldquo;Recognizing his potential and leadership, he successfully transitioned to a Project Manager role.&rdquo;</blockquote>
+        <figcaption>Ellen A. &middot; colleague at Four13 Group</figcaption>
+      </figure>
+    </div>
+    <p style="color:var(--ink-faint);font-family:var(--mono);font-size:11.5px;margin-top:18px">// full recommendations on LinkedIn</p>
+  </div>
+</section>
+
 <section id="contact">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">04</span>
+      <span class="sec-num">07</span>
       <span class="sec-title">Contact</span>
       <span class="sec-rule"></span>
     </div>
@@ -389,6 +740,53 @@
 <footer>
   <div class="wrap">Edward John Felicia · Project Manager · Built 2026</div>
 </footer>
+
+<script>
+(function(){
+  var track=document.getElementById('fwTrack');
+  var prev=document.getElementById('fwPrev');
+  var next=document.getElementById('fwNext');
+  var hint=document.getElementById('fwHint');
+  var dots=document.querySelectorAll('#frameworks .cdot');
+  if(track){
+    var slides=track.querySelectorAll('.slide');
+    var i=0;
+    function go(n){
+      i=Math.max(0,Math.min(slides.length-1,n));
+      track.scrollTo({left:track.clientWidth*i});
+      dots.forEach(function(d,idx){d.classList.toggle('active',idx===i);});
+      var atEnd=(i===slides.length-1);
+      next.classList.toggle('dim',atEnd);
+      if(hint) hint.style.visibility=atEnd?'hidden':'visible';
+    }
+    prev.addEventListener('click',function(){go(i-1);});
+    next.addEventListener('click',function(){go(i+1);});
+    dots.forEach(function(d){d.addEventListener('click',function(){go(parseInt(d.dataset.i,10));});});
+    window.addEventListener('resize',function(){track.scrollTo({left:track.clientWidth*i});});
+  }
+
+  var reveals=document.querySelectorAll('.reveal');
+  if(reveals.length){
+    var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReduced){
+      reveals.forEach(function(el){el.classList.add('in');});
+    } else {
+      var triggerRatio = 0.4;
+      function checkReveals(){
+        var line = window.innerHeight * triggerRatio;
+        reveals.forEach(function(el){
+          if(el.classList.contains('in')) return;
+          var top = el.getBoundingClientRect().top;
+          if(top < line) el.classList.add('in');
+        });
+      }
+      window.addEventListener('scroll', checkReveals, {passive:true});
+      window.addEventListener('resize', checkReveals);
+      checkReveals();
+    }
+  }
+})();
+</script>
 
 </body>
 </html>
