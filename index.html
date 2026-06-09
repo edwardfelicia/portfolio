@@ -123,6 +123,11 @@
   .cert{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px}
   .cert .c-name{color:var(--ink)}
   .cert .c-org{font-family:var(--mono);font-size:12px;color:var(--ink-faint);white-space:nowrap}
+  .cert-link{text-decoration:none;transition:border-color .15s}
+  .cert-link .c-name{color:var(--ink);transition:color .15s}
+  .cert-link:hover .c-name{color:var(--accent)}
+  .cert-link .ext{font-size:11px;color:var(--ink-faint);transition:color .15s}
+  .cert-link:hover .ext{color:var(--accent)}
 
   /* contact */
   .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -710,16 +715,15 @@
       <span class="sec-rule"></span>
     </div>
     <div class="certlist">
-      <div class="cert"><span class="c-name">Google Project Management Certificate</span><span class="c-org">Google '25</span></div>
-      <div class="cert"><span class="c-name">Atlassian Agile PM Professional</span><span class="c-org">Atlassian '24</span></div>
-      <div class="cert"><span class="c-name">Career Essentials in PM</span><span class="c-org">Microsoft '24</span></div>
-      <div class="cert"><span class="c-name">Scrum Foundation (SFPC™)</span><span class="c-org">CertiProf '24</span></div>
+      <a class="cert cert-link" href="https://www.linkedin.com/learning/certificates/e7ed7ed694c291868dca1e35ad1173f1a7624fd5a515f5b5f791c393607edc1c" target="_blank" rel="noopener"><span class="c-name">Atlassian Agile PM Professional <span class="ext">↗</span></span><span class="c-org">Atlassian '24</span></a>
+      <a class="cert cert-link" href="https://www.linkedin.com/learning/certificates/ca208e9d2611e527c1d3432ea64b40fa6312d06de795ddf9198528ec9e83644c" target="_blank" rel="noopener"><span class="c-name">Career Essentials in PM <span class="ext">↗</span></span><span class="c-org">Microsoft '24</span></a>
+      <a class="cert cert-link" href="https://www.credly.com/badges/9c57744e-c4bd-4206-accf-2ef4157ff8ab" target="_blank" rel="noopener"><span class="c-name">Scrum Foundation (SFPC™) <span class="ext">↗</span></span><span class="c-org">CertiProf '24</span></a>
+      <a class="cert cert-link" href="https://www.credly.com/badges/f054a2f6-9955-48cc-a81d-baaef7a26086" target="_blank" rel="noopener"><span class="c-name">Remote Work Professional (RWPC™) <span class="ext">↗</span></span><span class="c-org">CertiProf '24</span></a>
+      <a class="cert cert-link" href="https://verify.skilljar.com/c/jqcvxneruhhi" target="_blank" rel="noopener"><span class="c-name">ClickUp Novice Certificate <span class="ext">↗</span></span><span class="c-org">ClickUp '23</span></a>
       <div class="cert"><span class="c-name">The Basics of Scrum</span><span class="c-org">PMI '24</span></div>
-      <div class="cert"><span class="c-name">ClickUp Novice Certificate</span><span class="c-org">ClickUp '23</span></div>
-      <div class="cert"><span class="c-name">Remote Work Professional (RWPC™)</span><span class="c-org">CertiProf '24</span></div>
       <div class="cert"><span class="c-name">Licensed Mechanical Engineer</span><span class="c-org">PRC '17</span></div>
     </div>
-    <div class="flag" style="padding-left:0;margin-top:22px">// PMP certification — in progress</div>
+    <div class="flag" style="padding-left:0;margin-top:22px">// in progress: Google Project Management Certificate &middot; PMP</div>
   </div>
 </section>
 
